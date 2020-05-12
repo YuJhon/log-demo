@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line]|reqid=%X{reqid:-}|%msg%n
+            </pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+    <property name="LOG_FILE"
+              value="/app/logs/log-trace.log"/>
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread] %logger{10} [%file:%line] :|reqid=%X{reqid:-}|account=%X{account:-}|%m%n
+            </pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <MaxHistory>1</MaxHistory>
+        </rollingPolicy>
+    </appender>
+
+
+</configuration>
