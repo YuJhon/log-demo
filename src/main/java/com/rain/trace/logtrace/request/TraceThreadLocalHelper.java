@@ -1,4 +1,4 @@
-package com.vanke.framework.core.request;
+package com.rain.trace.logtrace.request;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
 import org.apache.commons.lang3.StringUtils;
