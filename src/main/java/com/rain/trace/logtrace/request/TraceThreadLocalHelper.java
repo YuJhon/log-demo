@@ -6,12 +6,12 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * <p>功能描述</br>通过线程传递参数</p>
  *
- * @author jiangy19
+ * @author rain
  * @version v1.0
- * @projectName vk-open-platform
+ * @projectName log-trace
  * @date 2019/12/16 13:39
  */
-public class VkThreadLocalHelper {
+public class TraceThreadLocalHelper {
 
     private static ThreadLocal<Long> accountInfo = new TransmittableThreadLocal<>();
 

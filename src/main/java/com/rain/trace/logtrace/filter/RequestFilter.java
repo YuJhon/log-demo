@@ -25,8 +25,8 @@ import java.util.UUID;
  * @date 2020-05-10 15:18
  * @version v1.0
  */
-@Component
-@Order(110)
+//@Component
+//@Order(110)
 public class RequestFilter extends OncePerRequestFilter {
 
     private Logger log = LoggerFactory.getLogger(this.getClass());
@@ -43,7 +43,6 @@ public class RequestFilter extends OncePerRequestFilter {
         }
         MDC.put(FilterConstants.REQ_ID, requestId);
         httpServletResponse.setHeader(FilterConstants.REQ_ID, requestId);
-
 
         String requestType = httpServletRequest.getContentType();
         String requestSubType = Optional.ofNullable(requestType).map(t -> t.split(";")[0]).orElse("");

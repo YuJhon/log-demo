@@ -11,7 +11,7 @@ import java.util.List;
  * @version v1.0
  */
 public class FilterConstants {
-    public static final String REQ_ID = "reqid";
+    public static final String REQ_ID = "req_id";
     public static final List<String> LOG_CONTENT_TYPE = Arrays.asList("text/xml", "text/html", "text/plain", "application/x-javascript", "application/json", "application/x-www-form-urlencoded", "");
 
 }

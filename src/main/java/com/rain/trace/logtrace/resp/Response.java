@@ -1,5 +1,9 @@
 package com.rain.trace.logtrace.resp;
 
+import com.rain.trace.logtrace.request.TraceThreadLocalHelper;
+
+import java.util.Date;
+
 /**
  * <pre>功能描述：</br><pre>
  * @ProjectName log-trace
@@ -15,10 +19,15 @@ public class Response {
 
     private boolean success;
 
+    private String reqId;
+
+    private Date requestTime = new Date();
+
     public static Response success(Object data) {
         Response response = new Response();
         response.setSuccess(true);
         response.setData(data);
+        response.setReqId(TraceThreadLocalHelper.getReqId());
         return response;
     }
 
@@ -45,5 +54,13 @@ public class Response {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getReqId() {
+        return reqId;
+    }
+
+    public void setReqId(String reqId) {
+        this.reqId = reqId;
     }
 }

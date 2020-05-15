@@ -1,7 +1,6 @@
-package com.vanke.framework.core.request;
+package com.rain.trace.logtrace.request;
 
-import com.vanke.framework.constant.VkFrameworkConstants;
-import com.vanke.framework.constant.VkReqHeaderConstants;
+import com.rain.trace.logtrace.constants.FilterConstants;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +10,7 @@ import java.util.UUID;
 /**
  * <p>功能描述</br>修改头部信息</p>
  *
- * @author jiangy19
+ * @author rain
  * @version v1.0
  * @projectName vk-open-platform
  * @date 2019/12/16 16:15
@@ -26,8 +25,8 @@ public class DefaultHeaderReqIdWrapper extends HttpServletRequestWrapper {
     public String getHeader(String param) {
         HttpServletRequest request = (HttpServletRequest) getRequest();
         String paramVal = request.getHeader(param);
-        if (StringUtils.isEmpty(paramVal) && VkReqHeaderConstants.REQ_ID.equalsIgnoreCase(param)) {
-            return UUID.randomUUID().toString().split(VkFrameworkConstants.STRIKE_SPLITTER)[0];
+        if (StringUtils.isEmpty(paramVal) && FilterConstants.REQ_ID.equalsIgnoreCase(param)) {
+            return UUID.randomUUID().toString().split("-")[0];
         }
         return paramVal;
     }
